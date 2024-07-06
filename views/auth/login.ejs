@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title<%= process.env.APP_NAME %></title>
+    <link rel="icon" href="/img/favicon.ico?v=2" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/admin/style.css" />
+    <link rel="stylesheet" href="/css/admin/progress.css" />
+    <script src="/js/Jquery/Jquery.min.js"></script>
+    <script src="/js/classes.js"></script>
+    <script src="/js/dungchung.js"></script>
+    <!-- <script src="/js/admin.js"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-center wrap-login">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Login</h5>
+            <div class="container-fluid">
+              <form id="login">
+                <div class="form-group">
+                  <label for="username">
+                    <i class="fa-solid fa-user"></i> Username</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    aria-describedby="username"
+                    placeholder="Enter username"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password"
+                    ><i class="fa-solid fa-lock"></i> Password</label
+                  >
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Password"
+                  />
+                </div>
+                <button type="button" class="btn btn-success" onclick="logIn()">
+                  <i class="fa-solid fa-right-to-bracket"></i> Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+        .wrap-login{
+            margin: 100px;
+        }
+        .error{
+            color: #fa0404;
+        }
+    </style>
+  </body>
+ 
+</html>

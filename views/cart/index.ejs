@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/gioHang.css">
+<link rel="stylesheet" href="/css/modal.css" />
+<script src="/js/giohang.js"></script>
+<table class="listSanPham"> </table>
+<div class="modal">
+    <span class="close" onclick="showModal(false);">&times;</span>
+    <div class="modal-content">
+        <h1>Payment Method</h1>
+        <h5>Quét QR để thanh toán</h5>
+        <form id="payment">
+            <div class="field-wrap">
+                <img src="" id="QR" alt="">
+            </div>
+            <input type="text" id="order_id" hidden>
+            <button type="button" id="confirm" class="button button-block" onclick="thanhToan()" disabled />Tôi đã thanh toán</button>
+        </form>
+    </div>
+</div>

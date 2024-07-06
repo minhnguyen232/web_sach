@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/css/chitietsanpham.css" />
+<!-- js -->
+<script src="/js/chitietsanpham.js"></script>
+
+<div
+  id="productNotFound"
+  style="min-height: 50vh; text-align: center; margin: 50px; display: none"
+>
+  <h1 style="color: red; margin-bottom: 10px">Không tìm thấy sản phẩm</h1>
+  <a href="/" style="text-decoration: underline">Quay lại trang chủ</a>
+</div>
+
+<div class="chitietSanpham" style="margin-bottom: 100px">
+  <h1></h1>
+  <div class="rating"></div>
+  <div class="rowdetail group">
+    <div class="picture">
+      <img src="" onclick="opencertain()" />
+    </div>
+    <div class="price_sale">
+      <div class="area_price"></div>
+      <div class="ship" style="display: none">
+        <img src="/img/chitietsanpham/clock-152067_960_720.png" />
+        <div>NHẬN HÀNG TRONG 1 GIỜ</div>
+      </div>
+      <div class="area_promo">
+        <strong>khuyến mãi</strong>
+        <div class="promo">
+          <img src="/img/chitietsanpham/icon-tick.png" />
+          <div id="detailPromo"></div>
+        </div>
+      </div>
+      <div class="policy">
+        <div>
+          <img src="/img/chitietsanpham/box.png" />
+          <p>Trong hộp có: thẻ bảo hành</p>
+        </div>
+        <div>
+          <img src="/img/chitietsanpham/icon-baohanh.png" />
+          <p>Bảo hành chính hảng 1 tháng.</p>
+        </div>
+        <div class="last">
+          <img src="/img/chitietsanpham/1-1.jpg" />
+          <p>
+            1 đổi 1 trong 1 tháng nếu lỗi, đổi sản phẩm tại nhà trong 1 ngày.
+          </p>
+        </div>
+      </div>
+      <div class="area_order">
+        <!-- nameProduct là biến toàn cục được khởi tạo giá trị trong phanTich_URL_chiTietSanPham -->
+        <a class="buy_now" onclick="themVaoGioHang(maProduct, nameProduct);">
+          <b><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</b>
+          <p>Giao trong 1 giờ hoặc nhận tại cửa hàng</p>
+        </a>
+      </div>
+    </div>
+    <div class="info_product">
+      <h2>Thông tin</h2>
+      <ul class="info"></ul>
+    </div>
+  </div>
+  <div id="overlaycertainimg" class="overlaycertainimg">
+    <div class="close" onclick="closecertain()">&times;</div>
+    <div class="overlaycertainimg-content">
+      <img
+        id="bigimg"
+        class="bigimg"
+        src="/img/chitietsanpham/Tokyoonfoot.jpg"
+      />
+      <div class="div_smallimg owl-carousel"></div>
+    </div>
+  </div>
+</div>
+
+<div id="goiYSanPham"></div>
+
+<!-- <script>
+  const id = `<%- JSON.stringify(id) %>`;
+  const url = `/api/v1/product/detail/${id}`; // Replace with the actual API URL
+  $.ajax({
+    type: "GET",
+    url: url,
+    success: function (data) {
+      window.localStorage.setItem("product", JSON.stringify(data));
+    },
+    error: function (data) {
+      alert(data.message);
+      window.setTimeout(function () {
+        location.reload();
+      }, 500);
+    },
+  });
+</script> -->

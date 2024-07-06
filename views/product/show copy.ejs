@@ -1,0 +1,85 @@
+<div class="contain-khungSanPham">
+  <div class="khungSanPham" style="border-color: #ff9c00">
+    <h3
+      class="tenKhung"
+      style="
+        background-image: linear-gradient(
+          120deg,
+          #ff9c00 0%,
+          #ec1f1f 50%,
+          #ff9c00 100%
+        );
+      "
+    >
+      * NỔI BẬT NHẤT *
+    </h3>
+    <% if (products && products.length > 0) { %>
+    <div class="listSpTrongKhung flexContain" id="productList">
+      <% products.forEach(product => { %>
+      <li class="sanPham">
+        <a href="<%= 'product/' + product.id %>">
+          <img src="<%= product.img %>" alt="<%= product.name %>" />
+          <h3><%= product.name %></h3>
+          <div class="price">
+            <strong><%= product.price %>₫</strong>
+          </div>
+          <div class="ratingresult">
+            <% for (let i = 0; i < product.star; i++) { %>
+            <i class="fa fa-star"></i>
+            <% } %>
+            <span><%= product.rateCount %> đánh giá</span>
+          </div>
+          <% if (product.price > 0) { %>
+          <label class="giamgia">
+            <i class="fa fa-bolt"></i> Giảm <%= product.discount %>₫
+          </label>
+          <% } %>
+          <div class="tooltip">
+            <button
+              class="themvaogio"
+              onclick="themVaoGioHang('<%= product.id %>', '<%= product.name %>'); return false;"
+            >
+              <span class="tooltiptext" style="font-size: 15px"
+                >Thêm vào giỏ</span
+              >
+              +
+            </button>
+          </div>
+        </a>
+      </li>
+      <% }); %>
+    </div>
+
+    <!-- <a
+      class="xemTatCa"
+      href="#"
+      id="loadMore"
+      style="border-left: 2px solid #ff9c00; border-right: 2px solid #ff9c00"
+    >
+      Xem tất cả <%= products.length %> sản phẩm
+    </a> -->
+    <% } else { %>
+    <p>No products available.</p>
+    <% } %>
+
+    <hr />
+    <div class="float-end d-flex justify-content-cente">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+              >Previous</a
+            >
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<br>

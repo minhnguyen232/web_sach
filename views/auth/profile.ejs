@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/nguoidung.css" />
+<link rel="stylesheet" href="/css/gioHang.css" />
+<script src="/js/nguoidung.js"></script>
+<div class="infoUser"></div>
+
+<div class="listDonHang"></div>
+<script>
+  const url = "/api/v1/info"; // Replace with the actual API URL
+  const user = window.localStorage.getItem("user");
+  function deleteCookie(cookieName) {
+    document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  }
+  const token = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("authorization="));
+  if (token) {
+    const accessToken = token.split("=")[1];
+    $.ajax({
+      type: "GET",
+      url: url,
+      headers: {
+        x_authorization: accessToken,
+      },
+      success: function (data) {
+        // window.localStorage.removeItem("user");
+        // window.localStorage.removeItem("token");
+      },
+      error: function (data) {
+        window.localStorage.removeItem("user");
+        window.localStorage.removeItem("token");
+        deleteCookie("authorization")
+        alert(data.message);
+        window.setTimeout(function () {
+          location.reload();
+        }, 500);
+      },
+    });
+  } else {
+    window.localStorage.removeItem("user");
+    window.localStorage.removeItem("token");
+    deleteCookie("authorization")
+  }
+</script>
